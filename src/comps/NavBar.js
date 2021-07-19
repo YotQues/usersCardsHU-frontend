@@ -20,34 +20,34 @@ function NavBar(props) {
     localStorage.removeItem("tok");
     updateUserData();
     history.push("/login");
-    toast.info("You logged out from system !");
+    toast.info("You are logged out.");
   }
 
   return (
-    <div className="container nav_top p-2">
+    <div className="nav_top p-2">
       <div className="row align-items-center">
         <div className="logo col-lg-3 d-flex justify-content-between align-items-center">
-          <h2 className="text-danger">Cards project</h2>
+          <h2 className="text-light navbar-brand display-4"><Link className="navbar-brand text-light" to="/">Business Cards</Link></h2>
           <div className="burger" onClick={() => {
             setShowMobileNav(!showMobileNav);
           }}>
-            <i className="fa fa-bars fs-2" aria-hidden="true"></i>
+            <i className="fa fa-bars fs-2 text-light" aria-hidden="true"></i>
           </div>
         </div>
         <nav onClick={hideNavMobile} className={"col-lg-9 text-end"} style={{ display: showMobileNav && "block" }} >
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <Link className="navigation links" to="/">Home</Link>
+          <Link className="navigation links" to="/about">About</Link>
           {!localStorage["tok"] ?
             <React.Fragment>
-              <Link to="/login">Log in</Link>
-              <Link to="/signup">Sign up</Link>
+              <Link className="navigation links" to="/login">Log in</Link>
+              <Link className="navigation links" to="/signup">Sign up</Link>
             </React.Fragment>
             :
             <React.Fragment>
-              <Link to="/userInfo">User info</Link>
-              <Link to="/favorites">My Favorites</Link>
-              {user?.biz && <Link to="/myBizCards">My cards</Link>}
-              <Link onClick={logOut} to="#" className="text-danger">Log out</Link>
+              <Link className="navigation links" to="/userInfo">User info</Link>
+              <Link className="navigation links" to="/favorites">My Favorites</Link>
+              {user?.biz && <Link className="navigation links" to="/myBizCards">My cards</Link>}
+              <Link className="navigation links" onClick={logOut} to="#" className="text-danger log out">Log out</Link>
             </React.Fragment>
           }
         </nav>

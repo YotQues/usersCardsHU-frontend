@@ -36,11 +36,11 @@ function App() {
 
   return (
     <Router>
-      <header className="container-fluid shadow-sm">
+      <header className="container-fluid bg-dark shadow-sm">
         {user && <Route path="/" component={NavBar} />}
       </header>
-      { user &&
-        <main className="container" style={{ minHeight: "81vh" }}>
+      {user &&
+        <main className="container bg-light" style={{ minHeight: "81vh" }}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />

@@ -1,9 +1,6 @@
 import axios from "axios"
 
 let myApi = "https://cards-hackeru.herokuapp.com";
-/* if (window.location.href.includes("localhost:")) {
-  myApi = "http://localhost:3400";
-} */
 
 export const API_URL = myApi;
 

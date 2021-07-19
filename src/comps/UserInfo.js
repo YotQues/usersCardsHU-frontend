@@ -19,11 +19,11 @@ function UserInfo(props) {
 
   return (
     <div>
-      <PageHeader title="Info about your user:" />
+      <PageHeader title="My Info:" />
       <div>
         <h4 className="h5">Name: {userInfo.name}</h4>
         <h4 className="h5">Email: {userInfo.email}</h4>
-        <h4 className="h5">Sign up data: {userInfo.dateCreated}</h4>
+        <h4 className="h5">Date of registration: {userInfo.dateCreated}</h4>
       </div>
     </div>
   )

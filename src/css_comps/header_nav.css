@@ -2,40 +2,59 @@ header .burger {
   display: none;
 }
 
-header a {
-  color:#333;
+header a.navigation.links {
+  padding: 0 12px;
+  text-decoration: none;
+  color: white;
+}
+header a.navigation.links:hover {
+  color: hsl(208, 7%, 60%);
+}
+
+header a.log.out {
   padding: 0 12px;
   text-decoration: none;
 }
 
-
-@media (max-width:991px){
+@media (max-width: 991px) {
   header .burger {
     display: block;
     cursor: pointer;
   }
 
-  header nav { 
+  header nav {
     position: absolute;
-    right:0;
-    top:58px;
-    width:70% !important;
-    background: white;
-    padding:0 !important;
+    right: 0;
+    top: 58px;
+    width: 70% !important;
+    padding: 0 !important;
     display: none;
-    border:1px solid grey;
-    
+    border: 1px solid grey;
   }
 
-  header nav a{
+  header a {
     display: block;
-    padding:8px;
+    padding: 8px;
     text-align: center;
-    border-bottom: 2px solid #333; 
+  }
+  header a.navigation.links {
+    display: block;
+    padding: 8px;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    background: #212529;
+  }
+  header a.log.out {
+    display: block;
+    padding: 8px;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    background: #212529;
   }
 
-  header nav a:hover{
+  header a.navigation.links:hover,
+  a.log.out:hover {
     background: #333;
-    color:white;
+    color: white;
   }
 }

@@ -28,7 +28,7 @@ function FavoriteCards(props) {
 
   return (
     <div>
-      <PageHeader title="Your favorite business cards" />
+      <PageHeader title="Your Favorite Business Cards: " />
       <CardsList ar={cards_ar} />
     </div>
   )

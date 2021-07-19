@@ -20,12 +20,12 @@ function MyCards(props) {
   }
 
   const delCard = async (_id) => {
-    if (window.confirm("Are you sure you want to del?")) {
+    if (window.confirm("Are you sure you want to permanently delete this business card?")) {
       let url = API_URL + "/cards/" + _id;
       let data = await doApiMethod(url, "DELETE");
       if (data.n === 1) {
         doApi();
-        toast.info("Card deleted forever!!!!!!");
+        toast.info("Card deleted!");
       }
     }
   }
@@ -33,7 +33,7 @@ function MyCards(props) {
   return (
     <div className="container">
       <PageHeader title="Biz cards you added before:" />
-      <Link className="btn btn-success" to="/addCard">Add new biz card</Link>
+      <Link className="btn btn-success" to="/addCard">New Card <i class="fa fa-plus" aria-hidden="true"></i></Link>
       <div className="table-responsive">
         <table className="table table-striped">
           <thead>
@@ -58,11 +58,11 @@ function MyCards(props) {
                   <td>{item.bizPhone}</td>
                   <td className="text-center">
                     <Link to={"/editCard/" + item._id}>
-                      <button>edit</button>
+                      <button className="badge text-info" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                     </Link>
                     <button onClick={() => {
                       delCard(item._id);
-                    }} className="ms-2" style={{ background: "pink" }}>del</button>
+                    }} className="ms-2 badge text-danger" ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                   </td>
                 </tr>
               )

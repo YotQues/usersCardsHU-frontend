@@ -22,7 +22,7 @@ function AddCard(props) {
       let url = API_URL + "/cards";
       let data = await doApiMethod(url, "POST", dataForm);
       console.log(data)
-      if (data._id){
+      if (data._id) {
         toast.success("Card been added");
         history.push("/myBizCards");
       }
@@ -60,7 +60,7 @@ function AddCard(props) {
           }
         </div>
         <div className="col-lg-6">
-          <label>*Biz image url</label>
+          <label>Biz image url</label>
           <input  {...imageRef} type="text" className="form-control mt-2" />
           {errors.bizImage &&
             <small className="text-danger">* You must Enter valid url</small>

@@ -16,21 +16,20 @@ function SignUpClient(props) {
     try {
       let data = await doApiMethod(url, "POST", formData);
       if (data._id) {
-        toast.success("You sign up successfuly!")
+        toast.success("You successfully signed up!")
         history.push("/login");
       }
       else {
-        toast.error("There probelm , come back later and try again")
+        toast.error("A problem occurred. Please try again later.")
       }
     }
     catch (err) {
-      // in axios the err comes with response prop which has a data prop
       console.log(err.response.data);
       if (err.response.data.code) {
-        toast.error("User already in systme , try login");
+        toast.error("The email address you just tried to submit is already registered to an active user.");
       }
       else {
-        toast.error("There probelm , come back later and try again");
+        toast.error("A problem occurred. Please try again later.");
       }
     }
   }
@@ -46,7 +45,7 @@ function SignUpClient(props) {
   return (
     <div className="container">
       <form onSubmit={handleSubmit(onSubForm)} className="col-lg-6 mx-auto shadow p-3 rounded mt-3">
-        <PageHeader title="Sign up new user" />
+        <PageHeader title="Sign Up:" />
         <div>
           <label>Email:</label>
           <input {...emailRef} type="text" className="form-control" />
@@ -64,7 +63,7 @@ function SignUpClient(props) {
         </div>
         <div className="mt-2">
           <input {...checkRef} type="checkbox" className="form-check-input me-2" />
-          <label>I am Business</label>
+          <label>I am running a business</label>
         </div>
         <button className="btn btn-info mt-3">Sign up</button>
       </form>

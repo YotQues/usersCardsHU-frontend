@@ -10,8 +10,8 @@ function Home(props) {
   let [cards_ar, setCardsAr] = useState([]);
 
   useEffect(() => {
-    const quries = new URLSearchParams(window.location.search);
-    let page = quries.get("page") ? quries.get("page") - 1 : 0;
+    const queries = new URLSearchParams(window.location.search);
+    let page = queries.get("page") ? queries.get("page") - 1 : 0;
     let url = API_URL + "/cards?page=" + page;
     doApi(url)
   }, [props.location])
@@ -25,7 +25,7 @@ function Home(props) {
 
   return (
     <div>
-      <PageHeader title="Welcome to home page" />
+      <PageHeader title="Welcome to Business Cards" />
       <Pagenation urlOfItemNum="/cards/totalCards" linkTo="/?page=" />
       <CardsList ar={cards_ar} />
     </div>

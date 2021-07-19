@@ -1,11 +1,12 @@
 import React from 'react';
 import PageHeader from './common/pageHeader';
 
-function Page404(props){
-  return(
+function Page404(props) {
+  return (
     <div>
       <PageHeader title="Page not found , 404!" />
-    </div> 
+      <PageHeader title="Woops! Seems like you are looking for a page that doesn't exist..." />
+    </div>
   )
 }
 
