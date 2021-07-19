@@ -35,6 +35,7 @@ function App() {
   }
 
   return (
+
     <Router>
       <header className="container-fluid bg-dark shadow-sm">
         {user && <Route path="/" component={NavBar} />}

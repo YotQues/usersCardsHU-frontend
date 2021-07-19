@@ -59,4 +59,4 @@ function CardsList(props) {
   )
 }
 
-export default CardsList
+export default CardsList;
