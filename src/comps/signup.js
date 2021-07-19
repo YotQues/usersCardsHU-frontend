@@ -10,8 +10,6 @@ function SignUpClient(props) {
   let history = useHistory();
 
   const onSubForm = async (formData) => {
-    console.log(formData);
-
     let url = API_URL + "/users/";
     try {
       let data = await doApiMethod(url, "POST", formData);
@@ -53,7 +51,7 @@ function SignUpClient(props) {
         </div>
         <div>
           <label>Password:</label>
-          <input {...passwordRef} type="text" className="form-control" />
+          <input {...passwordRef} type="passowrd" className="form-control" />
           {errors.password && <span className="text-danger">Enter min 3 charts password</span>}
         </div>
         <div>
