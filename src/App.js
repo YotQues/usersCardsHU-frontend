@@ -41,7 +41,7 @@ function App() {
         {user && <Route path="/" component={NavBar} />}
       </header>
       {user &&
-        <main className="container bg-light" style={{ minHeight: "81vh" }}>
+        <main className="container" style={{ minHeight: "81vh" }}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />

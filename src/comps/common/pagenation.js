@@ -12,7 +12,7 @@ function Pagenation(props) {
   const doApi = async () => {
     let url = API_URL + props.urlOfItemNum
     let data = await doApiGet(url);
-    console.log(data.count);
+
     setCountPage(Math.ceil(data.count / PER_PAGE));
   }
 

@@ -31,12 +31,12 @@ function CardsList(props) {
   return (
     <div className="row">
       {props.ar.map(item => {
-        let bg = item.bizImage?.length > 2 ? item.bizImage : '/images/default.jpg'
+        let bg = item.bizImage?.length > 2 ? item.bizImage : '/images/default.png'
         return (
           <div key={item._id} className="col-lg-4 p-3">
             <div className="border">
               <div className="biz_img" style={{
-                backgroundImage: `url(${bg})`
+                backgroundImage: `url("${bg}")`
               }} >
 
               </div>

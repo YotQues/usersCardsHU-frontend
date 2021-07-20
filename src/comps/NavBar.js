@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getUserData, updateUserData } from '../services/userSer';
+import NavLink from './NavLink';
+
 function NavBar(props) {
   let [showMobileNav, setShowMobileNav] = useState(false);
   let [user, setUser] = useState(null);
-  let history = useHistory()
+  let history = useHistory();
+  let navRef = useRef();
 
 
   useEffect(() => {
-    setUser(getUserData())
+    setUser(getUserData());
   }, [props.location])
 
   const hideNavMobile = () => {
@@ -23,6 +26,7 @@ function NavBar(props) {
     toast.info("You are logged out.");
   }
 
+  const { pathname } = history.location;
   return (
     <div className="nav_top p-2">
       <div className="row align-items-center">
@@ -34,19 +38,19 @@ function NavBar(props) {
             <i className="fa fa-bars fs-2 text-light" aria-hidden="true"></i>
           </div>
         </div>
-        <nav onClick={hideNavMobile} className={"col-lg-9 text-end"} style={{ display: showMobileNav && "block" }} >
-          <Link className="navigation links" to="/">Home</Link>
-          <Link className="navigation links" to="/about">About</Link>
+        <nav ref={navRef} onClick={hideNavMobile} className={"col-lg-9 text-end"} style={{ display: showMobileNav && "block" }} >
+          <NavLink pathname={pathname} className="navigation links" to="/">Home</NavLink>
+          <NavLink pathname={pathname} className="navigation links" to="/about">About</NavLink>
           {!localStorage["tok"] ?
             <React.Fragment>
-              <Link className="navigation links" to="/login">Log in</Link>
-              <Link className="navigation links" to="/signup">Sign up</Link>
+              <NavLink pathname={pathname} className="navigation links" to="/login">Log in</NavLink>
+              <NavLink pathname={pathname} className="navigation links" to="/signup">Sign up</NavLink>
             </React.Fragment>
             :
             <React.Fragment>
-              <Link className="navigation links" to="/userInfo">User info</Link>
-              <Link className="navigation links" to="/favorites">My Favorites</Link>
-              {user?.biz && <Link className="navigation links" to="/myBizCards">My cards</Link>}
+              <NavLink pathname={pathname} className="navigation links" to="/userInfo">User info</NavLink>
+              <NavLink pathname={pathname} className="navigation links" to="/favorites">My Favorites</NavLink>
+              {user?.biz && <NavLink pathname={pathname} className="navigation links" to="/myBizCards">My cards</NavLink>}
               <Link className="navigation links" onClick={logOut} to="#" className="text-danger log out">Log out</Link>
             </React.Fragment>
           }
